@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "OpenCart-Test-Automation-/1.0.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "4.27.0"
+        },
+        "runtime": {
+          "OpenCart-Test-Automation-.dll": {}
+        }
+      },
+      "Selenium.WebDriver/4.27.0": {
+        "runtime": {
+          "lib/net8.0/WebDriver.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OpenCart-Test-Automation-/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Selenium.WebDriver/4.27.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bMIpqwpBfYLa1lh8gPVa6A1i9LeWNsfc2mR9why0DutEKI7ck3GVxzco1bB/8bv+7IA6rk4sR9WpZLRUnH/AAw==",
+      "path": "selenium.webdriver/4.27.0",
+      "hashPath": "selenium.webdriver.4.27.0.nupkg.sha512"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "jtGSZJyQfLQ=",
+  "success": true,
+  "projectFilePath": "/home/khanyi_code/OpenCart-Test-Automation-/OpenCart-Test-Automation-.csproj",
+  "expectedPackageFiles": [
+    "/home/khanyi_code/.nuget/packages/selenium.webdriver/4.27.0/selenium.webdriver.4.27.0.nupkg.sha512",
+    "/home/khanyi_code/.nuget/packages/selenium.webdriver.chromedriver/131.0.6778.20400/selenium.webdriver.chromedriver.131.0.6778.20400.nupkg.sha512"
+  ],
+  "logs": []
+}

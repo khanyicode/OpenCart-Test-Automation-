@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/khanyi_code/OpenCart-Test-Automation-/OpenCart-Test-Automation-.csproj": {}
+  },
+  "projects": {
+    "/home/khanyi_code/OpenCart-Test-Automation-/OpenCart-Test-Automation-.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/khanyi_code/OpenCart-Test-Automation-/OpenCart-Test-Automation-.csproj",
+        "projectName": "OpenCart-Test-Automation-",
+        "projectPath": "/home/khanyi_code/OpenCart-Test-Automation-/OpenCart-Test-Automation-.csproj",
+        "packagesPath": "/home/khanyi_code/.nuget/packages/",
+        "outputPath": "/home/khanyi_code/OpenCart-Test-Automation-/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/khanyi_code/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.27.0, )"
+            },
+            "Selenium.WebDriver.ChromeDriver": {
+              "target": "Package",
+              "version": "[131.0.6778.20400, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
