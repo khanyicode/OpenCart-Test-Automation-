@@ -18,6 +18,21 @@ namespace OpenCartAutomation.Tests
             _driver.Navigate().GoToUrl("https://opencart.abstracta.us/index.php?route=account/register");
             _registrationPage = new RegistrationPage(_driver);
         }
-    }
+        [Test]
+        public void RegisterWithValidDetails()
+        {
+            _registrationPage.EnterFirstName("Mpho");
+            _registrationPage.EnterLastName("Mofokeng");
+            _registrationPage.AgreeToTerms();
+            _registrationPage.SubmitForm();
 
+            Assert.That(_driver.PageSource.Contains("Your Account Has Been Created!"), Is.True, "Registration was not successful.");
+        }
+
+        [TearDown]
+        public void Teardown()
+        {
+            _driver.Quit();
+        }
+    }
 }
