@@ -23,7 +23,7 @@ namespace OpenCartAutomation.Tests
         public void SearchForProduct_ShouldDisplayResults()
         {
             // Act
-            _homePage.SearchProduct("laptop");
+            _homePage.SearchProduct("Canon EOS 5D");
 
             // Assert
             Assert.That(_homePage.IsFeaturedProductDisplayed(), Is.True, 
