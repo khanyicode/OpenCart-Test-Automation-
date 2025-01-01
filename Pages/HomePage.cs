@@ -12,6 +12,12 @@ namespace OpenCartAutomation.Pages
         private By searchBox = By.Name("search");
         private By searchButton = By.XPath("//button[@class='btn btn-default btn-lg']");
         private By featuredProduct = By.XPath("//div[@class='product-thumb']");
+        private By wishlistButton = By.XPath("//button[contains(@data-original-title, 'Add to Wish List')]");
+        private By loginPrompt = By.XPath("//div[@id='account-login']");
+        private By myAccountDropdown = By.XPath("//a[@title='My Account']");
+        private By loginOption = By.XPath("//a[text()='Login']");
+        private By loginPage = By.XPath("//h2[text()='Returning Customer']");
+        private By searchResults = By.XPath("//div[@class='product-thumb']");
 
         public HomePage(IWebDriver driver)
         {
@@ -49,6 +55,61 @@ namespace OpenCartAutomation.Pages
         {
             EnterSearchText(productName);
             ClickSearchButton();
+        }
+
+        public void AddToWishlist(string productName)
+        {
+            var productElement = _wait.Until(d => d.FindElement(By.XPath($"//a[text()='{productName}']/ancestor::div[contains(@class, 'product-thumb')]")));
+            var wishlistElement = productElement.FindElement(wishlistButton);
+            wishlistElement.Click();
+        }
+
+        public bool IsLoginPromptDisplayed()
+        {
+            try
+            {
+                return _wait.Until(d => d.FindElement(loginPrompt)).Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        public bool IsSearchResultDisplayed()
+        {
+            try
+            {
+                return _wait.Until(d => d.FindElements(searchResults).Count > 0);
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        public void ClickMyAccount()
+        {
+            var accountDropdown = _wait.Until(d => d.FindElement(myAccountDropdown));
+            accountDropdown.Click();
+        }
+
+        public void SelectLoginOption()
+        {
+            var loginLink = _wait.Until(d => d.FindElement(loginOption));
+            loginLink.Click();
+        }
+
+        public bool IsLoginPageDisplayed()
+        {
+            try
+            {
+                return _wait.Until(d => d.FindElement(loginPage)).Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
         }
     }
 }
