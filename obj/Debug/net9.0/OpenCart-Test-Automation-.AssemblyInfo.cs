@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OpenCart-Test-Automation-")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+847378bb61fd0b57f66d6fe88a26dd5f01d5b8e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e546613e6af18f5c94a6b6173547eef974a46b69")]
 [assembly: System.Reflection.AssemblyProductAttribute("OpenCart-Test-Automation-")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OpenCart-Test-Automation-")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

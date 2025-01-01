@@ -101,3 +101,4 @@
 /home/khanyi_code/OpenCart-Test-Automation-/bin/Debug/net9.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 /home/khanyi_code/OpenCart-Test-Automation-/obj/Debug/net9.0/OpenCart.10F7EA16.Up2Date
 /home/khanyi_code/OpenCart-Test-Automation-/obj/Debug/net9.0/OpenCart-Test-Automation-.genruntimeconfig.cache
+/home/khanyi_code/OpenCart-Test-Automation-/bin/Debug/net9.0/WebDriver.Support.dll
