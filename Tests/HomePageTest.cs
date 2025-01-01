@@ -27,7 +27,7 @@ namespace OpenCartAutomation.Tests
 
             // Assert
             Assert.That(_homePage.IsFeaturedProductDisplayed(), Is.True, 
-                "Featured product not displayed after search.");
+                "Featured product  displayed after search.");
         }
 
         [TearDown]
