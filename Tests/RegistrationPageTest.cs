@@ -23,6 +23,10 @@ namespace OpenCartAutomation.Tests
         {
             _registrationPage.EnterFirstName("Mpho");
             _registrationPage.EnterLastName("Mofokeng");
+            _registrationPage.EnterEmail("mpho.mofokeng" + Guid.NewGuid() + "@example.com");
+            _registrationPage.EnterTelephone("1234567890");
+            _registrationPage.EnterPassword("Test123!");
+            _registrationPage.EnterConfirmPassword("Test123!");
             _registrationPage.AgreeToTerms();
             _registrationPage.SubmitForm();
 
