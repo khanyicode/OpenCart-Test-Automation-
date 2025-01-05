@@ -75,7 +75,7 @@ Each test case includes:
 - **Execution Steps**: Detailed steps outlining user interactions with the web application.
 - **Assertions**: Expected outcomes to verify functionality.
 
-- ## Contributing
+ ## Contributing
 
 1. **Fork the repository**: Fork this repository to your own GitHub account.
 2. **Create a feature branch**: Create a new branch for your feature or bugfix.
