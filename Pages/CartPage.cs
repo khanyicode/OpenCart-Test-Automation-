@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Linq;
 
 namespace OpenCartAutomation.Pages
 {
@@ -9,53 +10,61 @@ namespace OpenCartAutomation.Pages
         private readonly IWebDriver _driver;
         private readonly WebDriverWait _wait;
 
-        public CartPage(IWebDriver driver)
+        public CartPage(IWebDriver driver, WebDriverWait wait)
         {
             _driver = driver;
-            _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            _wait = wait;
         }
 
-        // Locators
-        private readonly By CartTable = By.CssSelector(".table-responsive table");
-        private readonly By ProductNameLocator = By.CssSelector(".table-responsive tbody tr td:nth-child(2)");
-        private readonly By RemoveButtonLocator = By.CssSelector(".btn-danger");
-        private readonly By UpdateQuantityField = By.CssSelector(".input-group input");
-        private readonly By UpdateButton = By.CssSelector(".input-group .btn-primary");
-        private readonly By CheckoutButton = By.LinkText("Checkout");
-        private readonly By TotalAmountLocator = By.CssSelector("tr:last-child td:last-child");
+        public bool HasProductsInCart()
+        {
+            return _wait.Until(driver =>
+                driver.FindElements(By.CssSelector(".table-responsive tbody tr")).Count > 0);
+        }
 
-        // Methods
         public string GetProductName()
         {
-            return _driver.FindElement(ProductNameLocator).Text;
+            return _wait.Until(driver =>
+                driver.FindElement(By.CssSelector(".table-responsive tbody tr:first-child td:first-child")).Text);
         }
 
         public void RemoveProduct()
         {
-            _driver.FindElement(RemoveButtonLocator).Click();
-        }
+            var removeButton = _wait.Until(driver =>
+                driver.FindElement(By.CssSelector(".table-responsive tbody tr:first-child td:last-child button")));
+            removeButton.Click();
 
-        public void UpdateProductQuantity(int quantity)
-        {
-            var quantityField = _driver.FindElement(UpdateQuantityField);
-            quantityField.Clear();
-            quantityField.SendKeys(quantity.ToString());
-            _driver.FindElement(UpdateButton).Click();
-        }
-
-        public string GetTotalAmount()
-        {
-            return _driver.FindElement(TotalAmountLocator).Text;
-        }
-
-        public void ProceedToCheckout()
-        {
-            _driver.FindElement(CheckoutButton).Click();
+            // Wait for cart to update
+            _wait.Until(driver =>
+                driver.FindElements(By.CssSelector(".table-responsive tbody tr")).Count == 0);
         }
 
         public bool IsCartEmpty()
         {
-            return !_driver.FindElements(CartTable).Count.Equals(0);
+            return _wait.Until(driver =>
+                driver.FindElements(By.CssSelector(".table-responsive tbody tr")).Count == 0);
+        }
+
+        public void UpdateProductQuantity(int quantity)
+        {
+            var quantityInput = _wait.Until(driver =>
+                driver.FindElement(By.CssSelector(".table-responsive tbody tr:first-child input[name='quantity']")));
+            quantityInput.Clear();
+            quantityInput.SendKeys(quantity.ToString());
+
+            var updateButton = _wait.Until(driver =>
+                driver.FindElement(By.CssSelector(".table-responsive tbody tr:first-child button.update")));
+            updateButton.Click();
+
+            // Wait for the total to update
+            _wait.Until(driver =>
+                GetTotalAmount() != null);
+        }
+
+        public string GetTotalAmount()
+        {
+            return _wait.Until(driver =>
+                driver.FindElement(By.CssSelector(".table-responsive tfoot tr:last-child td:last-child")).Text);
         }
     }
 }

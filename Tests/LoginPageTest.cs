@@ -22,7 +22,7 @@ namespace OpenCartAutomation.Tests
         [Test]
         public void Login_WithValidCredentials_ShouldSucceed()
         {
-            _loginPage.Login("testuser@example.com", "password123");
+            _loginPage.Login("khanyisilemesha@gmail.com", "D7avFH~W4sMw@mN");
             Assert.That(_driver.Url, Is.EqualTo("https://opencart.abstracta.us/index.php?route=account/account"));
         }
 
